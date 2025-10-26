@@ -1,0 +1,39 @@
+@baseUrl = http://localhost:5000
+
+### Primeiro crie um canal
+POST {{baseUrl}}/api/channel
+Content-Type: application/json
+
+{
+  "name": "Sabrina Carpenter",
+  "inscritos": 10000,
+  "data": "2025-10-23"
+}
+
+### Depois crie uma música (substitua o channelId pelo ID real do canal)
+POST {{baseUrl}}/api/music
+Content-Type: application/json
+
+{
+  "title": "Espresso",
+  "channelId": "d1915e52-73a3-4cb4-a39d-3263cdc51457"
+}
+
+### Crie um comentário (substitua o musicId pelo ID real da música)
+POST {{baseUrl}}/api/comment
+Content-Type: application/json
+
+{
+  "text": "Essa música é viciante demais!",
+  "liked": true,
+  "musicId": "d1915e52-73a3-4cb4-a39d-3263cdc51457"
+}
+
+### Listar todos os canais
+GET {{baseUrl}}/api/channel
+
+### Listar todas as músicas
+GET {{baseUrl}}/api/music
+
+### Listar todos os comentários
+GET {{baseUrl}}/api/comment
